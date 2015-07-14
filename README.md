@@ -2,6 +2,8 @@
 
 This repo was imported from [Alexander Plavin's repo](https://hg.plav.in/my_projects/python/ipy-progressbar), which, according to [PyPI](https://pypi.python.org/pypi/ipy-progressbar/1.0.2) is under the MIT License.
 
+I will not maintain this repo or fix bugs and issues, but pull requests are, of course, welcome.
+
 Introduction
 ============
 
