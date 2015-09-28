@@ -9,6 +9,10 @@ Introduction
 
 ipy-progressbar allows to use the same code for rich progressbars in IPython Notebooks, and for simple fallback ones in terminal sessions.
 
+Install
+=======
+
+`pip install git+https://github.com/yoavram/ipy-progressbar.git`
 
 Example
 =======
