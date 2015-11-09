@@ -1,3 +1,7 @@
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
 from time import time
 from collections import deque
 from math import sqrt
@@ -17,7 +21,7 @@ class ProgressBarBase(object):
                 self.max = None
         except TypeError:
             # not iterable - assume max is given
-            self.iterable = xrange(iterable_or_max)
+            self.iterable = range(iterable_or_max)
             self.max = iterable_or_max
 
         self.title = title
@@ -77,9 +81,9 @@ class ProgressBarBase(object):
 
     @property
     def eta_stddev(self):
-        mean = sum(self.iter_times) / len(self.iter_times)
+        mean = old_div(sum(self.iter_times), len(self.iter_times))
         ss = sum((t - mean)**2 for t in self.iter_times)
-        return (self.max - self.current) * sqrt(ss / len(self.iter_times))
+        return (self.max - self.current) * sqrt(old_div(ss, len(self.iter_times)))
 
     def __getitem__(self, key):
         # for % formatting

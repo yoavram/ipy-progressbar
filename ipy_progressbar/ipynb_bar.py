@@ -1,3 +1,6 @@
+from __future__ import division
+from builtins import str
+from past.utils import old_div
 from .base import ProgressBarBase
 import uuid
 from IPython.display import display_html, display_javascript
@@ -76,4 +79,4 @@ class ProgressBarIPyNb(ProgressBarBase):
 
     @property
     def percent_one(self):
-        return 100.0 / self.max
+        return old_div(100.0, self.max)
