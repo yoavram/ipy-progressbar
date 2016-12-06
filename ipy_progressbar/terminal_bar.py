@@ -1,4 +1,6 @@
 #encoding: utf-8
+from __future__ import print_function
+from builtins import map
 from .base import ProgressBarBase
 import sys
 
@@ -18,12 +20,12 @@ class ProgressBarTerminal(ProgressBarBase):
     def print_output(self):
         parts = [format % self for format in self.format_strs]
         parts[1:1] = self.bar(self.width - sum(map(len, parts)))
-        print '\r' + ''.join(parts),
+        print('\r' + ''.join(parts), end=' ')
         sys.stdout.flush()
 
     def start(self):
         super(ProgressBarTerminal, self).start()
-        print
+        print()
         self.print_output()
 
     def advance(self):
@@ -33,11 +35,11 @@ class ProgressBarTerminal(ProgressBarBase):
     def finish(self):
         super(ProgressBarTerminal, self).finish()
         if not self.autohide:
-            print
+            print()
 
     def hide(self):
         super(ProgressBarTerminal, self).hide()
-        print (' ' * self.width) + '\r',
+        print((' ' * self.width) + '\r', end=' ')
         sys.stdout.flush()
 
     def bar(self, bar_width):
